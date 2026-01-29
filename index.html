@@ -1,35 +1,44 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mini Project - Portfolio</title>
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
 
-  <body class="bg-slate-100 text-slate-900">
+  <body class="bg-slate-50 text-slate-900 antialiased selection:bg-blue-100">
     <!-- Navbar -->
-    <header class="sticky top-0 z-50 border-b bg-white/80 backdrop-blur">
+    <header
+      class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/70 backdrop-blur"
+    >
       <div
         class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
       >
-        <a href="#home" class="text-lg font-bold">MyPortfolio</a>
+        <a href="#home" class="group flex items-center gap-2 font-semibold">
+          <span
+            class="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-sm transition group-hover:opacity-95"
+            aria-hidden="true"
+            >M</span
+          >
+          <span class="text-base tracking-tight">MyPortfolio</span>
+        </a>
 
-        <nav class="flex items-center gap-3">
+        <nav class="flex items-center gap-1 text-sm">
           <a
             href="#home"
-            class="rounded-md px-3 py-2 text-sm font-medium hover:bg-slate-100"
+            class="rounded-xl px-3 py-2 text-slate-700 transition hover:bg-slate-100 hover:text-slate-900"
             >Home</a
           >
           <a
             href="#profile"
-            class="rounded-md px-3 py-2 text-sm font-medium hover:bg-slate-100"
+            class="rounded-xl px-3 py-2 text-slate-700 transition hover:bg-slate-100 hover:text-slate-900"
             >Our Profile</a
           >
           <a
             href="#message"
-            class="rounded-md px-3 py-2 text-sm font-medium hover:bg-slate-100"
+            class="rounded-xl px-3 py-2 text-slate-700 transition hover:bg-slate-100 hover:text-slate-900"
             >Message Us</a
           >
         </nav>
@@ -38,42 +47,83 @@
 
     <main class="mx-auto max-w-6xl px-4">
       <!-- Home -->
-      <section id="home" class="py-10">
-        <div class="rounded-2xl bg-white p-6 shadow-sm">
-          <p class="text-sm text-slate-500">Home</p>
+      <section id="home" class="py-12">
+        <div
+          class="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-7 shadow-sm md:p-10"
+        >
+          <div
+            class="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-blue-100 blur-3xl"
+          ></div>
+          <div
+            class="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-slate-100 blur-3xl"
+          ></div>
 
-          <h1 class="mt-2 text-3xl font-bold leading-tight md:text-4xl">
-            Hi, <span id="userName" class="text-blue-600">Name</span>. Welcome
-            to Website
-          </h1>
-
-          <p class="mt-3 max-w-2xl text-slate-600">
-            This is a simple portfolio/company profile website built with HTML,
-            Tailwind CSS, and JavaScript.
-          </p>
-
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a
-              href="#profile"
-              class="rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90"
-              >View Profile</a
+          <div class="relative">
+            <span
+              class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-600"
             >
-            <a
-              href="#message"
-              class="rounded-xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold hover:bg-slate-50"
-              >Message Us</a
-            >
+              <span
+                class="inline-block h-2 w-2 rounded-full bg-blue-600"
+              ></span>
+              Mini Project • Company Profile
+            </span>
+
+            <h1 class="mt-4 text-3xl font-semibold tracking-tight md:text-5xl">
+              Hi, <span id="userName" class="text-blue-600">Name</span>.
+              <span class="text-slate-700">Welcome to Website</span>
+            </h1>
+
+            <p class="mt-4 max-w-2xl text-slate-600">
+              A clean portfolio/company profile website built using HTML,
+              Tailwind CSS, and JavaScript validation.
+            </p>
+
+            <div class="mt-7 flex flex-wrap gap-3">
+              <a
+                href="#profile"
+                class="rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-200"
+              >
+                View Profile
+              </a>
+              <a
+                href="#message"
+                class="rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-800 transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-200"
+              >
+                Message Us
+              </a>
+            </div>
+
+            <div class="mt-8 grid gap-3 text-sm text-slate-600 sm:grid-cols-3">
+              <div class="rounded-2xl border border-slate-200 bg-white/60 p-4">
+                <p class="font-semibold text-slate-900">Responsive</p>
+                <p class="mt-1">Optimized for mobile & desktop.</p>
+              </div>
+              <div class="rounded-2xl border border-slate-200 bg-white/60 p-4">
+                <p class="font-semibold text-slate-900">Validation</p>
+                <p class="mt-1">Form checks with JavaScript.</p>
+              </div>
+              <div class="rounded-2xl border border-slate-200 bg-white/60 p-4">
+                <p class="font-semibold text-slate-900">Clean UI</p>
+                <p class="mt-1">Minimal, readable, professional.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- Our Profile -->
-      <section id="profile" class="py-10">
-        <div class="rounded-2xl bg-white p-6 shadow-sm">
-          <div class="flex items-start justify-between gap-4">
+      <section id="profile" class="py-12">
+        <div
+          class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-10"
+        >
+          <div
+            class="flex flex-col gap-2 md:flex-row md:items-end md:justify-between"
+          >
             <div>
               <p class="text-sm text-slate-500">Our Profile</p>
-              <h2 class="mt-2 text-2xl font-bold md:text-3xl">
+              <h2
+                class="mt-2 text-2xl font-semibold tracking-tight md:text-3xl"
+              >
                 About the Company
               </h2>
               <p class="mt-2 max-w-3xl text-slate-600">
@@ -82,21 +132,35 @@
                 provide.
               </p>
             </div>
+
+            <div
+              class="mt-2 flex items-center gap-2 text-sm text-slate-500 md:mt-0"
+            >
+              <span class="inline-flex h-2 w-2 rounded-full bg-blue-600"></span>
+              <span>Updated • <span id="year"></span></span>
+            </div>
           </div>
 
           <!-- Banner -->
-          <div class="mt-6 overflow-hidden rounded-2xl border bg-slate-50">
+          <div class="mt-6 overflow-hidden rounded-3xl border border-slate-200">
             <div
-              class="flex h-48 items-center justify-center md:h-64"
+              class="flex h-52 items-center justify-center bg-gradient-to-br from-blue-50 to-slate-50 md:h-72"
               aria-label="Company banner"
             >
-              <p class="text-slate-500">Banner Image Placeholder</p>
+              <div class="text-center">
+                <p class="text-sm text-slate-500">Banner</p>
+                <p class="mt-1 font-semibold text-slate-800">
+                  Add your image later
+                </p>
+              </div>
             </div>
           </div>
 
           <!-- Vision & Mission -->
           <div class="mt-8 grid gap-4 md:grid-cols-2">
-            <div class="rounded-2xl border bg-white p-5">
+            <div
+              class="rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-md"
+            >
               <h3 class="text-lg font-semibold">Vision</h3>
               <p class="mt-2 text-slate-600">
                 Write your vision here. Example: Becoming a trusted digital
@@ -104,45 +168,77 @@
               </p>
             </div>
 
-            <div class="rounded-2xl border bg-white p-5">
+            <div
+              class="rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-md"
+            >
               <h3 class="text-lg font-semibold">Mission</h3>
-              <ul class="mt-2 list-disc space-y-2 pl-5 text-slate-600">
-                <li>Deliver high-quality solutions.</li>
-                <li>Focus on user experience and clarity.</li>
-                <li>Build reliable and maintainable systems.</li>
+              <ul class="mt-3 space-y-2 text-slate-600">
+                <li class="flex gap-2">
+                  <span
+                    class="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-blue-600"
+                  ></span>
+                  <span>Deliver high-quality solutions.</span>
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-blue-600"
+                  ></span>
+                  <span>Focus on user experience and clarity.</span>
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-blue-600"
+                  ></span>
+                  <span>Build reliable and maintainable systems.</span>
+                </li>
               </ul>
             </div>
           </div>
 
           <!-- Our Headquarter -->
           <div class="mt-10">
-            <h3 class="text-lg font-semibold">Our Headquarter</h3>
+            <div class="flex items-center justify-between gap-4">
+              <h3 class="text-lg font-semibold">Our Headquarter</h3>
+              <p class="text-sm text-slate-500">3 locations</p>
+            </div>
 
             <div class="mt-4 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-              <div class="rounded-2xl border bg-white p-5">
+              <div
+                class="rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-md"
+              >
                 <div
-                  class="mb-3 h-14 w-14 rounded-full border bg-slate-50"
-                ></div>
+                  class="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50"
+                >
+                  <span class="text-sm font-semibold text-slate-700">JK</span>
+                </div>
                 <p class="font-semibold">Jakarta</p>
                 <p class="mt-1 text-sm text-slate-600">
                   Address / short info here.
                 </p>
               </div>
 
-              <div class="rounded-2xl border bg-white p-5">
+              <div
+                class="rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-md"
+              >
                 <div
-                  class="mb-3 h-14 w-14 rounded-full border bg-slate-50"
-                ></div>
+                  class="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50"
+                >
+                  <span class="text-sm font-semibold text-slate-700">BD</span>
+                </div>
                 <p class="font-semibold">Bandung</p>
                 <p class="mt-1 text-sm text-slate-600">
                   Address / short info here.
                 </p>
               </div>
 
-              <div class="rounded-2xl border bg-white p-5">
+              <div
+                class="rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-md"
+              >
                 <div
-                  class="mb-3 h-14 w-14 rounded-full border bg-slate-50"
-                ></div>
+                  class="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50"
+                >
+                  <span class="text-sm font-semibold text-slate-700">SB</span>
+                </div>
                 <p class="font-semibold">Surabaya</p>
                 <p class="mt-1 text-sm text-slate-600">
                   Address / short info here.
@@ -154,12 +250,20 @@
       </section>
 
       <!-- Message Us -->
-      <section id="message" class="py-10">
+      <section id="message" class="py-12">
         <div class="grid gap-6 md:grid-cols-2">
           <!-- Form -->
-          <div class="rounded-2xl bg-white p-6 shadow-sm">
+          <div
+            class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8"
+          >
             <p class="text-sm text-slate-500">Message Us</p>
-            <h2 class="mt-2 text-2xl font-bold">Send a Message</h2>
+            <h2 class="mt-2 text-2xl font-semibold tracking-tight">
+              Send a Message
+            </h2>
+            <p class="mt-2 text-sm text-slate-600">
+              Fill the form below. The data will be validated and shown on the
+              right panel.
+            </p>
 
             <form id="messageForm" class="mt-6 space-y-4" novalidate>
               <div>
@@ -168,7 +272,7 @@
                   id="name"
                   name="name"
                   type="text"
-                  class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 outline-none focus:ring-2 focus:ring-blue-200"
+                  class="mt-1 w-full rounded-2xl border border-slate-200 bg-white px-4 py-2.5 outline-none transition focus:ring-2 focus:ring-blue-200"
                   placeholder="Your name"
                 />
                 <p id="errName" class="mt-1 hidden text-sm text-red-600">
@@ -182,7 +286,7 @@
                   id="email"
                   name="email"
                   type="email"
-                  class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 outline-none focus:ring-2 focus:ring-blue-200"
+                  class="mt-1 w-full rounded-2xl border border-slate-200 bg-white px-4 py-2.5 outline-none transition focus:ring-2 focus:ring-blue-200"
                   placeholder="you@example.com"
                 />
                 <p id="errEmail" class="mt-1 hidden text-sm text-red-600">
@@ -198,7 +302,7 @@
                   id="phone"
                   name="phone"
                   type="tel"
-                  class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 outline-none focus:ring-2 focus:ring-blue-200"
+                  class="mt-1 w-full rounded-2xl border border-slate-200 bg-white px-4 py-2.5 outline-none transition focus:ring-2 focus:ring-blue-200"
                   placeholder="Numbers only"
                 />
                 <p id="errPhone" class="mt-1 hidden text-sm text-red-600">
@@ -214,7 +318,7 @@
                   id="messageText"
                   name="message"
                   rows="4"
-                  class="mt-1 w-full resize-none rounded-xl border border-slate-200 bg-white px-4 py-2.5 outline-none focus:ring-2 focus:ring-blue-200"
+                  class="mt-1 w-full resize-none rounded-2xl border border-slate-200 bg-white px-4 py-2.5 outline-none transition focus:ring-2 focus:ring-blue-200"
                   placeholder="Write your message..."
                 ></textarea>
                 <p id="errMsg" class="mt-1 hidden text-sm text-red-600">
@@ -224,7 +328,7 @@
 
               <button
                 type="submit"
-                class="w-full rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white hover:opacity-90"
+                class="w-full rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-200"
               >
                 Submit
               </button>
@@ -232,29 +336,36 @@
           </div>
 
           <!-- Output -->
-          <div class="rounded-2xl bg-white p-6 shadow-sm">
+          <div
+            class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8"
+          >
             <p class="text-sm text-slate-500">Result</p>
-            <h2 class="mt-2 text-2xl font-bold">Submitted Data</h2>
+            <h2 class="mt-2 text-2xl font-semibold tracking-tight">
+              Submitted Data
+            </h2>
+            <p class="mt-2 text-sm text-slate-600">
+              After submitting, the values will appear here.
+            </p>
 
             <div class="mt-6 space-y-3 text-slate-700">
-              <div class="rounded-xl border bg-slate-50 p-4">
-                <p class="text-sm text-slate-500">Name</p>
-                <p id="outName" class="font-semibold">-</p>
+              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                <p class="text-xs text-slate-500">Name</p>
+                <p id="outName" class="mt-1 font-semibold">-</p>
               </div>
 
-              <div class="rounded-xl border bg-slate-50 p-4">
-                <p class="text-sm text-slate-500">Email</p>
-                <p id="outEmail" class="font-semibold">-</p>
+              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                <p class="text-xs text-slate-500">Email</p>
+                <p id="outEmail" class="mt-1 font-semibold">-</p>
               </div>
 
-              <div class="rounded-xl border bg-slate-50 p-4">
-                <p class="text-sm text-slate-500">Phone</p>
-                <p id="outPhone" class="font-semibold">-</p>
+              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                <p class="text-xs text-slate-500">Phone</p>
+                <p id="outPhone" class="mt-1 font-semibold">-</p>
               </div>
 
-              <div class="rounded-xl border bg-slate-50 p-4">
-                <p class="text-sm text-slate-500">Message</p>
-                <p id="outMessage" class="font-semibold">-</p>
+              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                <p class="text-xs text-slate-500">Message</p>
+                <p id="outMessage" class="mt-1 font-semibold">-</p>
               </div>
             </div>
           </div>
@@ -266,6 +377,6 @@
       </footer>
     </main>
 
-    <script defer src="js/script.js"></script>
+    <script defer src="./js/script.js"></script>
   </body>
 </html>
