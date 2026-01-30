@@ -3,379 +3,487 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mini Project - Portfolio</title>
+    <title>Mini Project - Company Profile</title>
 
     <link rel="stylesheet" href="./css/style.css" />
   </head>
 
   <body class="bg-slate-50 text-slate-900 antialiased selection:bg-blue-100">
-    <!-- Navbar -->
-    <header
-      class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/70 backdrop-blur"
+    <div
+      id="introOverlay"
+      class="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/50 backdrop-blur-sm px-4"
+      aria-hidden="false"
     >
       <div
-        class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
+        class="w-full max-w-md rounded-3xl border border-slate-200 bg-white p-6 shadow-lg md:p-7"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="introTitle"
       >
-        <a href="#home" class="group flex items-center gap-2 font-semibold">
-          <span
-            class="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-sm transition group-hover:opacity-95"
-            aria-hidden="true"
-            >M</span
-          >
-          <span class="text-base tracking-tight">MyPortfolio</span>
-        </a>
+        <div class="flex items-start justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <div
+              class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-sm"
+              aria-hidden="true"
+            >
+              <span class="text-lg font-semibold leading-none">B</span>
+            </div>
 
-        <nav class="flex items-center gap-1 text-sm">
-          <a
-            href="#home"
-            class="rounded-xl px-3 py-2 text-slate-700 transition hover:bg-slate-100 hover:text-slate-900"
-            >Home</a
+            <div class="leading-tight">
+              <p class="text-xs text-slate-500">BluePeak Digital</p>
+              <h1 id="introTitle" class="text-lg font-semibold tracking-tight">
+                Welcome
+              </h1>
+            </div>
+          </div>
+
+          <button
+            id="introClose"
+            type="button"
+            class="rounded-xl p-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-700"
+            aria-label="Close"
+            title="Close"
           >
-          <a
-            href="#profile"
-            class="rounded-xl px-3 py-2 text-slate-700 transition hover:bg-slate-100 hover:text-slate-900"
-            >Our Profile</a
+            ✕
+          </button>
+        </div>
+
+        <p class="mt-3 text-sm text-slate-600">
+          Enter your name to personalize the greeting on the homepage.
+        </p>
+
+        <form id="introForm" class="mt-5 space-y-3" novalidate>
+          <div>
+            <label for="introName" class="text-sm font-medium text-slate-800"
+              >Name</label
+            >
+            <input
+              id="introName"
+              type="text"
+              class="mt-1 w-full rounded-2xl border border-slate-200 bg-white px-4 py-2.5 outline-none transition focus:ring-2 focus:ring-blue-200"
+              placeholder="e.g., Indra"
+              autocomplete="name"
+            />
+            <p id="introError" class="mt-1 hidden text-sm text-red-600">
+              Name is required.
+            </p>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-200"
           >
-          <a
-            href="#message"
-            class="rounded-xl px-3 py-2 text-slate-700 transition hover:bg-slate-100 hover:text-slate-900"
-            >Message Us</a
-          >
-        </nav>
+            Continue
+          </button>
+
+          <p class="pt-1 text-center text-xs text-slate-500">
+            Tip: enter any name for demo purposes.
+          </p>
+        </form>
       </div>
-    </header>
+    </div>
 
-    <main class="mx-auto max-w-6xl px-4">
-      <!-- Home -->
-      <section id="home" class="py-12">
+    <div id="app" class="hidden">
+      <header
+        class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/70 backdrop-blur"
+      >
         <div
-          class="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-7 shadow-sm md:p-10"
+          class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
         >
-          <div
-            class="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-blue-100 blur-3xl"
-          ></div>
-          <div
-            class="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-slate-100 blur-3xl"
-          ></div>
-
-          <div class="relative">
+          <a href="#home" class="group flex items-center gap-2 font-semibold">
             <span
-              class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-600"
+              class="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-sm transition group-hover:opacity-95"
+              aria-hidden="true"
+              >B</span
             >
+            <span class="text-base tracking-tight">BluePeak Digital</span>
+          </a>
+
+          <nav class="flex items-center gap-1 text-sm">
+            <a
+              href="#home"
+              class="rounded-xl px-3 py-2 text-slate-700 transition hover:bg-slate-100 hover:text-slate-900"
+              >Home</a
+            >
+            <a
+              href="#profile"
+              class="rounded-xl px-3 py-2 text-slate-700 transition hover:bg-slate-100 hover:text-slate-900"
+              >Our Profile</a
+            >
+            <a
+              href="#message"
+              class="rounded-xl px-3 py-2 text-slate-700 transition hover:bg-slate-100 hover:text-slate-900"
+              >Message Us</a
+            >
+          </nav>
+        </div>
+      </header>
+
+      <main class="mx-auto max-w-6xl px-4">
+        <section id="home" class="py-12">
+          <div
+            class="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-7 shadow-sm md:p-10"
+          >
+            <div
+              class="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-blue-100 blur-3xl"
+            ></div>
+            <div
+              class="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-slate-100 blur-3xl"
+            ></div>
+
+            <div class="relative">
               <span
-                class="inline-block h-2 w-2 rounded-full bg-blue-600"
-              ></span>
-              Mini Project • Company Profile
-            </span>
-
-            <h1 class="mt-4 text-3xl font-semibold tracking-tight md:text-5xl">
-              Hi, <span id="userName" class="text-blue-600">Name</span>.
-              <span class="text-slate-700">Welcome to Website</span>
-            </h1>
-
-            <p class="mt-4 max-w-2xl text-slate-600">
-              A clean portfolio/company profile website built using HTML,
-              Tailwind CSS, and JavaScript validation.
-            </p>
-
-            <div class="mt-7 flex flex-wrap gap-3">
-              <a
-                href="#profile"
-                class="rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-600"
               >
-                View Profile
-              </a>
-              <a
-                href="#message"
-                class="rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-800 transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-200"
-              >
-                Message Us
-              </a>
-            </div>
+                <span
+                  class="inline-block h-2 w-2 rounded-full bg-blue-600"
+                ></span>
+                Mini Project • Company Profile Website
+              </span>
 
-            <div class="mt-8 grid gap-3 text-sm text-slate-600 sm:grid-cols-3">
-              <div class="rounded-2xl border border-slate-200 bg-white/60 p-4">
-                <p class="font-semibold text-slate-900">Responsive</p>
-                <p class="mt-1">Optimized for mobile & desktop.</p>
+              <h1
+                class="mt-4 text-3xl font-semibold tracking-tight md:text-5xl"
+              >
+                Hi, <span id="userName" class="text-blue-600">Guest</span>.
+                <span class="text-slate-700">Welcome to BluePeak Digital</span>
+              </h1>
+
+              <p class="mt-4 max-w-2xl text-slate-600">
+                BluePeak Digital is a technology studio focused on building
+                clean, reliable, and user-friendly websites for businesses and
+                organizations. We combine structured development, responsive
+                design, and thoughtful user experience to deliver results that
+                are easy to maintain.
+              </p>
+
+              <div class="mt-7 flex flex-wrap gap-3">
+                <a
+                  href="#profile"
+                  class="rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                >
+                  View Company Profile
+                </a>
+                <a
+                  href="#message"
+                  class="rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-800 transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                >
+                  Get in Touch
+                </a>
               </div>
-              <div class="rounded-2xl border border-slate-200 bg-white/60 p-4">
-                <p class="font-semibold text-slate-900">Validation</p>
-                <p class="mt-1">Form checks with JavaScript.</p>
-              </div>
-              <div class="rounded-2xl border border-slate-200 bg-white/60 p-4">
-                <p class="font-semibold text-slate-900">Clean UI</p>
-                <p class="mt-1">Minimal, readable, professional.</p>
+
+              <div
+                class="mt-8 grid gap-3 text-sm text-slate-600 sm:grid-cols-3"
+              >
+                <div
+                  class="rounded-2xl border border-slate-200 bg-white/60 p-4"
+                >
+                  <p class="font-semibold text-slate-900">Responsive</p>
+                  <p class="mt-1">Optimized for mobile, tablet, and desktop.</p>
+                </div>
+                <div
+                  class="rounded-2xl border border-slate-200 bg-white/60 p-4"
+                >
+                  <p class="font-semibold text-slate-900">Quality-first</p>
+                  <p class="mt-1">
+                    Consistent UI and clear information layout.
+                  </p>
+                </div>
+                <div
+                  class="rounded-2xl border border-slate-200 bg-white/60 p-4"
+                >
+                  <p class="font-semibold text-slate-900">Reliable process</p>
+                  <p class="mt-1">Validation and predictable interactions.</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Our Profile -->
-      <section id="profile" class="py-12">
-        <div
-          class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-10"
-        >
+        <section id="profile" class="py-12">
           <div
-            class="flex flex-col gap-2 md:flex-row md:items-end md:justify-between"
+            class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-10"
           >
-            <div>
-              <p class="text-sm text-slate-500">Our Profile</p>
-              <h2
-                class="mt-2 text-2xl font-semibold tracking-tight md:text-3xl"
+            <div
+              class="flex flex-col gap-2 md:flex-row md:items-end md:justify-between"
+            >
+              <div>
+                <p class="text-sm text-slate-500">Our Profile</p>
+                <h2
+                  class="mt-2 text-2xl font-semibold tracking-tight md:text-3xl"
+                >
+                  About the Company
+                </h2>
+                <p class="mt-2 max-w-3xl text-slate-600">
+                  We help clients present their brand clearly on the web. Our
+                  work includes company profile sites, landing pages, and simple
+                  web applications—built with a focus on clarity, speed, and
+                  maintainability.
+                </p>
+              </div>
+
+              <div
+                class="mt-2 flex items-center gap-2 text-sm text-slate-500 md:mt-0"
               >
-                About the Company
+                <span
+                  class="inline-flex h-2 w-2 rounded-full bg-blue-600"
+                ></span>
+                <span>Updated • <span id="year"></span></span>
+              </div>
+            </div>
+
+            <div
+              class="mt-6 overflow-hidden rounded-3xl border border-slate-200"
+            >
+              <div
+                class="flex h-52 items-center justify-center bg-gradient-to-br from-blue-50 to-slate-50 md:h-72"
+                aria-label="Company banner"
+              >
+                <div class="text-center">
+                  <p class="text-sm text-slate-500">BluePeak Digital</p>
+                  <p class="mt-1 font-semibold text-slate-800">
+                    Websites • UI • Front-end Development
+                  </p>
+                  <p class="mt-2 text-sm text-slate-600">
+                    A clean, modern web presence that stays easy to manage.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 grid gap-4 md:grid-cols-2">
+              <div
+                class="rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-md"
+              >
+                <h3 class="text-lg font-semibold">Vision</h3>
+                <p class="mt-2 text-slate-600">
+                  To become a trusted partner for organizations that want a web
+                  presence that is clear, fast, and built to last.
+                </p>
+              </div>
+
+              <div
+                class="rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-md"
+              >
+                <h3 class="text-lg font-semibold">Mission</h3>
+                <ul class="mt-3 space-y-2 text-slate-600">
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-blue-600"
+                    ></span>
+                    <span
+                      >Build responsive websites with clean and consistent
+                      UI.</span
+                    >
+                  </li>
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-blue-600"
+                    ></span>
+                    <span
+                      >Deliver structured code that is easy to maintain.</span
+                    >
+                  </li>
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-blue-600"
+                    ></span>
+                    <span
+                      >Ensure a smooth user experience through validation and
+                      details.</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mt-10">
+              <div class="flex items-center justify-between gap-4">
+                <h3 class="text-lg font-semibold">Our Headquarter</h3>
+                <p class="text-sm text-slate-500">3 locations</p>
+              </div>
+
+              <div class="mt-4 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+                <div
+                  class="rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-md"
+                >
+                  <div
+                    class="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50"
+                  >
+                    <span class="text-sm font-semibold text-slate-700">JK</span>
+                  </div>
+                  <p class="font-semibold">Jakarta</p>
+                  <p class="mt-1 text-sm text-slate-600">
+                    Client meetings, project coordination, and delivery review.
+                  </p>
+                </div>
+
+                <div
+                  class="rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-md"
+                >
+                  <div
+                    class="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50"
+                  >
+                    <span class="text-sm font-semibold text-slate-700">BD</span>
+                  </div>
+                  <p class="font-semibold">Bandung</p>
+                  <p class="mt-1 text-sm text-slate-600">
+                    UI/UX design, prototyping, and front-end development.
+                  </p>
+                </div>
+
+                <div
+                  class="rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-md"
+                >
+                  <div
+                    class="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50"
+                  >
+                    <span class="text-sm font-semibold text-slate-700">SB</span>
+                  </div>
+                  <p class="font-semibold">Surabaya</p>
+                  <p class="mt-1 text-sm text-slate-600">
+                    Engineering support, testing, and implementation checks.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="message" class="py-12">
+          <div class="grid gap-6 md:grid-cols-2">
+            <div
+              class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8"
+            >
+              <p class="text-sm text-slate-500">Message Us</p>
+              <h2 class="mt-2 text-2xl font-semibold tracking-tight">
+                Contact Our Team
               </h2>
-              <p class="mt-2 max-w-3xl text-slate-600">
-                Write a short description about your company/portfolio here.
-                Mention what you do, what makes you unique, and what value you
-                provide.
+              <p class="mt-2 text-sm text-slate-600">
+                Have a question or want to discuss a project? Send a message
+                below. Your input will be validated, then displayed on the
+                result panel.
               </p>
+
+              <form id="messageForm" class="mt-6 space-y-4" novalidate>
+                <div>
+                  <label class="text-sm font-medium" for="name">Name</label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    class="mt-1 w-full rounded-2xl border border-slate-200 bg-white px-4 py-2.5 outline-none transition focus:ring-2 focus:ring-blue-200"
+                    placeholder="Your full name"
+                  />
+                  <p id="errName" class="mt-1 hidden text-sm text-red-600">
+                    Name is required.
+                  </p>
+                </div>
+
+                <div>
+                  <label class="text-sm font-medium" for="email">Email</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    class="mt-1 w-full rounded-2xl border border-slate-200 bg-white px-4 py-2.5 outline-none transition focus:ring-2 focus:ring-blue-200"
+                    placeholder="name@company.com"
+                  />
+                  <p id="errEmail" class="mt-1 hidden text-sm text-red-600">
+                    Please enter a valid email.
+                  </p>
+                </div>
+
+                <div>
+                  <label class="text-sm font-medium" for="phone"
+                    >Phone Number</label
+                  >
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    class="mt-1 w-full rounded-2xl border border-slate-200 bg-white px-4 py-2.5 outline-none transition focus:ring-2 focus:ring-blue-200"
+                    placeholder="Digits only (e.g., 081234567890)"
+                  />
+                  <p id="errPhone" class="mt-1 hidden text-sm text-red-600">
+                    Phone number must be digits only.
+                  </p>
+                </div>
+
+                <div>
+                  <label class="text-sm font-medium" for="messageText"
+                    >Message</label
+                  >
+                  <textarea
+                    id="messageText"
+                    name="message"
+                    rows="4"
+                    class="mt-1 w-full resize-none rounded-2xl border border-slate-200 bg-white px-4 py-2.5 outline-none transition focus:ring-2 focus:ring-blue-200"
+                    placeholder="Tell us briefly about your needs..."
+                  ></textarea>
+                  <p id="errMsg" class="mt-1 hidden text-sm text-red-600">
+                    Message is required.
+                  </p>
+                </div>
+
+                <button
+                  type="submit"
+                  class="w-full rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                >
+                  Submit
+                </button>
+              </form>
             </div>
 
             <div
-              class="mt-2 flex items-center gap-2 text-sm text-slate-500 md:mt-0"
+              class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8"
             >
-              <span class="inline-flex h-2 w-2 rounded-full bg-blue-600"></span>
-              <span>Updated • <span id="year"></span></span>
-            </div>
-          </div>
-
-          <!-- Banner -->
-          <div class="mt-6 overflow-hidden rounded-3xl border border-slate-200">
-            <div
-              class="flex h-52 items-center justify-center bg-gradient-to-br from-blue-50 to-slate-50 md:h-72"
-              aria-label="Company banner"
-            >
-              <div class="text-center">
-                <p class="text-sm text-slate-500">Banner</p>
-                <p class="mt-1 font-semibold text-slate-800">
-                  Add your image later
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Vision & Mission -->
-          <div class="mt-8 grid gap-4 md:grid-cols-2">
-            <div
-              class="rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <h3 class="text-lg font-semibold">Vision</h3>
-              <p class="mt-2 text-slate-600">
-                Write your vision here. Example: Becoming a trusted digital
-                partner for modern businesses.
+              <p class="text-sm text-slate-500">Result</p>
+              <h2 class="mt-2 text-2xl font-semibold tracking-tight">
+                Submitted Data
+              </h2>
+              <p class="mt-2 text-sm text-slate-600">
+                After successful submission, the form data will appear here.
               </p>
-            </div>
 
-            <div
-              class="rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <h3 class="text-lg font-semibold">Mission</h3>
-              <ul class="mt-3 space-y-2 text-slate-600">
-                <li class="flex gap-2">
-                  <span
-                    class="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-blue-600"
-                  ></span>
-                  <span>Deliver high-quality solutions.</span>
-                </li>
-                <li class="flex gap-2">
-                  <span
-                    class="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-blue-600"
-                  ></span>
-                  <span>Focus on user experience and clarity.</span>
-                </li>
-                <li class="flex gap-2">
-                  <span
-                    class="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-blue-600"
-                  ></span>
-                  <span>Build reliable and maintainable systems.</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Our Headquarter -->
-          <div class="mt-10">
-            <div class="flex items-center justify-between gap-4">
-              <h3 class="text-lg font-semibold">Our Headquarter</h3>
-              <p class="text-sm text-slate-500">3 locations</p>
-            </div>
-
-            <div class="mt-4 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-              <div
-                class="rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-md"
-              >
+              <div class="mt-6 space-y-3 text-slate-700">
                 <div
-                  class="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50"
+                  class="rounded-2xl border border-slate-200 bg-slate-50 p-4"
                 >
-                  <span class="text-sm font-semibold text-slate-700">JK</span>
+                  <p class="text-xs text-slate-500">Name</p>
+                  <p id="outName" class="mt-1 font-semibold">-</p>
                 </div>
-                <p class="font-semibold">Jakarta</p>
-                <p class="mt-1 text-sm text-slate-600">
-                  Address / short info here.
-                </p>
-              </div>
 
-              <div
-                class="rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-md"
-              >
                 <div
-                  class="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50"
+                  class="rounded-2xl border border-slate-200 bg-slate-50 p-4"
                 >
-                  <span class="text-sm font-semibold text-slate-700">BD</span>
+                  <p class="text-xs text-slate-500">Email</p>
+                  <p id="outEmail" class="mt-1 font-semibold">-</p>
                 </div>
-                <p class="font-semibold">Bandung</p>
-                <p class="mt-1 text-sm text-slate-600">
-                  Address / short info here.
-                </p>
-              </div>
 
-              <div
-                class="rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-md"
-              >
                 <div
-                  class="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50"
+                  class="rounded-2xl border border-slate-200 bg-slate-50 p-4"
                 >
-                  <span class="text-sm font-semibold text-slate-700">SB</span>
+                  <p class="text-xs text-slate-500">Phone</p>
+                  <p id="outPhone" class="mt-1 font-semibold">-</p>
                 </div>
-                <p class="font-semibold">Surabaya</p>
-                <p class="mt-1 text-sm text-slate-600">
-                  Address / short info here.
-                </p>
+
+                <div
+                  class="rounded-2xl border border-slate-200 bg-slate-50 p-4"
+                >
+                  <p class="text-xs text-slate-500">Message</p>
+                  <p id="outMessage" class="mt-1 font-semibold">-</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Message Us -->
-      <section id="message" class="py-12">
-        <div class="grid gap-6 md:grid-cols-2">
-          <!-- Form -->
-          <div
-            class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8"
-          >
-            <p class="text-sm text-slate-500">Message Us</p>
-            <h2 class="mt-2 text-2xl font-semibold tracking-tight">
-              Send a Message
-            </h2>
-            <p class="mt-2 text-sm text-slate-600">
-              Fill the form below. The data will be validated and shown on the
-              right panel.
-            </p>
-
-            <form id="messageForm" class="mt-6 space-y-4" novalidate>
-              <div>
-                <label class="text-sm font-medium" for="name">Name</label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  class="mt-1 w-full rounded-2xl border border-slate-200 bg-white px-4 py-2.5 outline-none transition focus:ring-2 focus:ring-blue-200"
-                  placeholder="Your name"
-                />
-                <p id="errName" class="mt-1 hidden text-sm text-red-600">
-                  Name is required.
-                </p>
-              </div>
-
-              <div>
-                <label class="text-sm font-medium" for="email">Email</label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  class="mt-1 w-full rounded-2xl border border-slate-200 bg-white px-4 py-2.5 outline-none transition focus:ring-2 focus:ring-blue-200"
-                  placeholder="you@example.com"
-                />
-                <p id="errEmail" class="mt-1 hidden text-sm text-red-600">
-                  Please enter a valid email.
-                </p>
-              </div>
-
-              <div>
-                <label class="text-sm font-medium" for="phone"
-                  >Phone Number</label
-                >
-                <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  class="mt-1 w-full rounded-2xl border border-slate-200 bg-white px-4 py-2.5 outline-none transition focus:ring-2 focus:ring-blue-200"
-                  placeholder="Numbers only"
-                />
-                <p id="errPhone" class="mt-1 hidden text-sm text-red-600">
-                  Phone number must be digits only.
-                </p>
-              </div>
-
-              <div>
-                <label class="text-sm font-medium" for="messageText"
-                  >Message</label
-                >
-                <textarea
-                  id="messageText"
-                  name="message"
-                  rows="4"
-                  class="mt-1 w-full resize-none rounded-2xl border border-slate-200 bg-white px-4 py-2.5 outline-none transition focus:ring-2 focus:ring-blue-200"
-                  placeholder="Write your message..."
-                ></textarea>
-                <p id="errMsg" class="mt-1 hidden text-sm text-red-600">
-                  Message is required.
-                </p>
-              </div>
-
-              <button
-                type="submit"
-                class="w-full rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-200"
-              >
-                Submit
-              </button>
-            </form>
-          </div>
-
-          <!-- Output -->
-          <div
-            class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8"
-          >
-            <p class="text-sm text-slate-500">Result</p>
-            <h2 class="mt-2 text-2xl font-semibold tracking-tight">
-              Submitted Data
-            </h2>
-            <p class="mt-2 text-sm text-slate-600">
-              After submitting, the values will appear here.
-            </p>
-
-            <div class="mt-6 space-y-3 text-slate-700">
-              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                <p class="text-xs text-slate-500">Name</p>
-                <p id="outName" class="mt-1 font-semibold">-</p>
-              </div>
-
-              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                <p class="text-xs text-slate-500">Email</p>
-                <p id="outEmail" class="mt-1 font-semibold">-</p>
-              </div>
-
-              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                <p class="text-xs text-slate-500">Phone</p>
-                <p id="outPhone" class="mt-1 font-semibold">-</p>
-              </div>
-
-              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                <p class="text-xs text-slate-500">Message</p>
-                <p id="outMessage" class="mt-1 font-semibold">-</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer class="py-10 text-center text-sm text-slate-500">
-        © <span id="year"></span> Mini Project EvoU
-      </footer>
-    </main>
+        <footer class="py-10 text-center text-sm text-slate-500">
+          © <span id="year"></span> BluePeak Digital • Company Profile Mini
+          Project
+        </footer>
+      </main>
+    </div>
 
     <script defer src="./js/script.js"></script>
   </body>
